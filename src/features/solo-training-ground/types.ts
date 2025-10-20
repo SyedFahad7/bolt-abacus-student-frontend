@@ -1,4 +1,4 @@
-export type Operation = 'addition' | 'multiplication' | 'division';
+export type Operation = 'addition' | 'multiplication' | 'division' | '+' | '×' | '÷';
 
 export interface FlashcardsSettings {
   operation: Operation;
@@ -15,9 +15,15 @@ export interface FlashcardsSettings {
 }
 
 export interface QuizQuestion {
-  id: string;
-  operator: Operation;
-  numbers: number[]; // for division: [dividend, divisor], multiplication: [a,b]
+  id: string;              // Unique ID for the question
+  operator: Operation;     // '+', '-', '×', or '÷'
+  numbers: number[];       // Operands: 
+                           // Addition/Subtraction: [num1, num2, ...] 
+                           // Multiplication: [a, b]
+                           // Division: [numerator, denominator]
+  questionText: string;    // Full question as a single string, e.g., "23 + 45 - 12"
+  answer: number;          // Correct answer
+  flashCardSpeed?: number; // Optional speed for flash card mode
 }
 
 export interface QuizAnswer {
