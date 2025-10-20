@@ -60,7 +60,7 @@ export default function FlashcardsResultsPage() {
             <div className="space-y-3">
               {questions.map((q, idx) => {
                 const userAnswer = answers[idx];
-                const correctAnswer = calculateAnswer(q);
+                const correctAnswer = q.answer;
                 const isCorrect = userAnswer.correct;
 
                 return (
@@ -81,12 +81,15 @@ export default function FlashcardsResultsPage() {
                           <span className="text-white font-semibold">Question {idx + 1}</span>
                         </div>
                         <div className="text-white/80 mb-1">
-                          {q.numbers.map((n, i) => (
+                          {/* {q.questionText.map((n, i) => (
+                          <>  <p>n{n}</p>
                             <span key={i}>
-                              {n >= 0 ? n : `(${Math.abs(n)})`}
+                              {n >= 0 ? n : ``}
                               {i < q.numbers.length - 1 && <span className="mx-2">+</span>}
-                            </span>
-                          ))}
+                            </span></>
+                          ))} */}
+
+                          <span>{q.questionText}</span>
                           <span className="mx-2">=</span>
                           <span className="font-bold">{correctAnswer}</span>
                         </div>
