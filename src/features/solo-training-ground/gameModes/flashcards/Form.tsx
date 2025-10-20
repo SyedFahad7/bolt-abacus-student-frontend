@@ -66,6 +66,7 @@ export default function FlashcardsFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
               <label className="opacity-90">Number of Questions</label>
               <input
+              title='numberOfQuestions'
                 type="number"
                 className="md:col-span-2 bg-black border border-[#2a2a2d] rounded-lg px-3 py-2"
                 value={settings.numberOfQuestions}
@@ -79,6 +80,7 @@ export default function FlashcardsFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
               <label className="opacity-90">Number of Digits</label>
               <input
+              title='numberOfDigits'
                 type="number"
                 className="md:col-span-2 bg-black border border-[#2a2a2d] rounded-lg px-3 py-2"
                 value={settings.numberOfDigits}
@@ -92,6 +94,7 @@ export default function FlashcardsFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
               <label className="opacity-90">Number of Rows</label>
               <input
+              title='numberOfRows'
                 type="number"
                 className="md:col-span-2 bg-black border border-[#2a2a2d] rounded-lg px-3 py-2"
                 value={settings.numberOfRows}
@@ -105,6 +108,7 @@ export default function FlashcardsFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
               <label className="opacity-90">Zig-Zag Pattern</label>
               <input
+              title='isZigzag'
                 type="checkbox"
                 className="md:col-span-2 h-5 w-5"
                 checked={settings.isZigzag}
@@ -116,6 +120,7 @@ export default function FlashcardsFormPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
                 <label className="opacity-90">Include Subtraction</label>
                 <input
+                title='includeSubtraction'
                   type="checkbox"
                   className="md:col-span-2 h-5 w-5"
                   checked={settings.includeSubtraction}
@@ -127,6 +132,7 @@ export default function FlashcardsFormPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
               <label className="opacity-90">Same digits in answer as question</label>
               <input
+                 title='persistNumberOfDigits'
                 type="checkbox"
                 className="md:col-span-2 h-5 w-5"
                 checked={settings.persistNumberOfDigits}
@@ -139,6 +145,7 @@ export default function FlashcardsFormPage() {
               <label className="opacity-90">Flash Card Speed</label>
               <div className="md:col-span-2 flex items-center gap-3">
                 <input
+                title='speed'
                   type="range"
                   min={100}
                   max={5000}
@@ -163,6 +170,7 @@ export default function FlashcardsFormPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
                 <label className="opacity-90">Enable</label>
                 <input
+                  title='audioMode'
                   type="checkbox"
                   className="md:col-span-2 h-5 w-5"
                   checked={settings.audioMode}
@@ -173,6 +181,7 @@ export default function FlashcardsFormPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
                 <label className="opacity-90">Audio Pace</label>
                 <select
+                   title='audio'
                   className="md:col-span-2 bg-black border border-[#2a2a2d] rounded-lg px-3 py-2"
                   disabled={!settings.audioMode}
                   value={settings.audioPace}
@@ -188,6 +197,7 @@ export default function FlashcardsFormPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-3">
                 <label className="opacity-90">Show Question Text</label>
                 <input
+                title='showQuestion'
                   type="checkbox"
                   className="md:col-span-2 h-5 w-5"
                   checked={settings.showQuestion}
