@@ -1,14 +1,19 @@
-import Sidebar from '../../../../components/Sidebar';
-import MainContent from '../../../../components/layout/MainContent';
+import { useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import Form from './Form.tsx';
 
 export default function TimedPage() {
-  return (
-    <div className="min-h-screen flex bg-black">
-      <Sidebar />
-      <MainContent>
-        <h1 className="text-2xl font-bold text-white mb-4">Time Attack</h1>
-        <p className="text-white/80">Settings form coming next...</p>
-      </MainContent>
-    </div>
-  );
+  const navigate = useNavigate();
+  const [params] = useSearchParams();
+  const operation = params.get('op');
+
+  useEffect(() => {
+    if (!operation || !['addition', 'multiplication', 'division'].includes(operation)) {
+      navigate('/student/solo-training-ground');
+    }
+  }, [operation, navigate]);
+
+  if (!operation) return null;
+
+  return <Form />;
 }

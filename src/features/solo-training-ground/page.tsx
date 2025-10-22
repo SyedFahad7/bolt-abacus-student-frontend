@@ -143,8 +143,5 @@ export default function SoloTrainingGroundPage() {
     );
   }
 
-  // Step 3: Render Form for selected game mode
-  // ...form, practice, results will go here...
-
   return null;
 }

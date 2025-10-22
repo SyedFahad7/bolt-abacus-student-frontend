@@ -11,28 +11,54 @@ export function generateFlashcardQuestions(
 
   for (let i = 0; i < count; i++) {
     const id = `q_${i + 1}`;
-    
+
     if (operation === 'addition') {
-      const numbers: number[] = [];
+      const nums: number[] = [];
       for (let r = 0; r < rows; r++) {
         const num = Math.floor(Math.random() * Math.pow(10, digits));
-        numbers.push(num);
+        nums.push(num);
       }
-      // subtraction if enabled
-      if (includeSubtraction && Math.random() > 0.5 && rows === 2) {
-        questions.push({ id, operator: 'addition', numbers: [numbers[0], -numbers[1]] });
-      } else {
-        questions.push({ id, operator: 'addition', numbers });
+      // Optionally turn one of the later rows negative to simulate subtraction
+      if (includeSubtraction && rows >= 2) {
+        const idx = Math.floor(Math.random() * (rows - 1)) + 1; // pick index > 0
+        nums[idx] = -Math.abs(nums[idx]);
       }
+
+      const total = nums.reduce((acc, n) => acc + n, 0);
+      const questionText = nums
+        .map((n, idx) => (idx === 0 ? `${Math.abs(n)}` : `${n < 0 ? '-' : '+'} ${Math.abs(n)}`))
+        .join(' ');
+
+      questions.push({
+        id,
+        operator: '+',
+        numbers: nums,
+        questionText,
+        answer: total,
+      });
     } else if (operation === 'multiplication') {
       const a = Math.floor(Math.random() * Math.pow(10, digits));
       const b = Math.floor(Math.random() * Math.pow(10, digits));
-      questions.push({ id, operator: 'multiplication', numbers: [a, b] });
+      const answer = a * b;
+      questions.push({
+        id,
+        operator: '×',
+        numbers: [a, b],
+        questionText: `${a} × ${b}`,
+        answer,
+      });
     } else if (operation === 'division') {
       const divisor = Math.floor(Math.random() * Math.pow(10, Math.min(digits, 2))) + 1;
       const quotient = Math.floor(Math.random() * Math.pow(10, digits));
       const dividend = divisor * quotient;
-      questions.push({ id, operator: 'division', numbers: [dividend, divisor] });
+      const answer = Math.floor(dividend / divisor);
+      questions.push({
+        id,
+        operator: '÷',
+        numbers: [dividend, divisor],
+        questionText: `${dividend} ÷ ${divisor}`,
+        answer,
+      });
     }
   }
 
@@ -41,15 +67,15 @@ export function generateFlashcardQuestions(
 
 export function calculateAnswer(question: QuizQuestion): number {
   const { operator, numbers } = question;
-  
-  if (operator === 'addition') {
+  if (operator === 'addition' || operator === '+') {
     return numbers.reduce((sum, n) => sum + n, 0);
-  } else if (operator === 'multiplication') {
+  }
+  if (operator === 'multiplication' || operator === '×') {
     return numbers[0] * numbers[1];
-  } else if (operator === 'division') {
+  }
+  if (operator === 'division' || operator === '÷') {
     return Math.floor(numbers[0] / numbers[1]);
   }
-  
   return 0;
 }
 
@@ -201,7 +227,21 @@ export function generateSoloTrainingQuestions({
 }: {
   mode: 1 | 2 | 3;
   subMode: 'flash_cards' | 'no_rush_mastery' | 'time_attack' | 'custom_challenge';
-  settings?: FlashcardsSettings;
+  settings?: Partial<{
+    numQuestions: number;
+    numDigits: number;
+    numRows: number;
+    zigZagPattern: boolean;
+    includeSubtraction: boolean;
+    sameDigitsInAnswer: boolean;
+    flashCardSpeed: number;
+    firstOperandDigits: number;
+    secondOperandDigits: number;
+    numeratorDigits: number;
+    denominatorDigits: number;
+    includeDecimal: boolean;
+    timeLimit: number; // in minutes
+  }>;
 }): QuizQuestion[] {
   const {
     numQuestions,
