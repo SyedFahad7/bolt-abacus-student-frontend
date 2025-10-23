@@ -25,6 +25,8 @@ const StudentProgressPage = lazy(() => import('../features/progress/page'));
 const HallOfFamePage = lazy(() => import('../features/hall-of-fame/page'));
 const ArchivePage = lazy(() => import('../features/archive/page'));
 const VirtualAbacusPage = lazy(() => import('../features/virtual-abacus/page'));
+const PathOfConquestPage = lazy(() => import('../features/path-of-conquest/page'));
+const PathOfConquestRealmPage = lazy(() => import('../features/path-of-conquest/realm'));
 // const StudentAchievementsPage = lazy(() => import('../features/achievements/page'));
 
 export interface RouteConfig {
@@ -40,6 +42,18 @@ export const routes: RouteConfig[] = [
     element: StudentDashboardPage,
     protected: true,
     title: 'Dashboard',
+  },
+  {
+    path: '/student/path-of-conquest',
+    element: PathOfConquestPage,
+    protected: true,
+    title: 'Path of Conquest',
+  },
+  {
+    path: '/student/path-of-conquest/:realmSlug',
+    element: PathOfConquestRealmPage,
+    protected: true,
+    title: 'Path of Conquest Realm',
   },
   {
     path: '/student/solo-training-ground',
