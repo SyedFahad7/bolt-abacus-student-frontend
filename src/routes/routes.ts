@@ -23,6 +23,7 @@ const STGSetPracticePage = lazy(() => import('../features/solo-training-ground/g
 const STGSetResultsPage = lazy(() => import('../features/solo-training-ground/gameModes/set/Results'));
 const StudentProgressPage = lazy(() => import('../features/progress/page'));
 const HallOfFamePage = lazy(() => import('../features/hall-of-fame/page'));
+const ArchivePage = lazy(() => import('../features/archive/page'));
 // const StudentAchievementsPage = lazy(() => import('../features/achievements/page'));
 
 export interface RouteConfig {
@@ -128,6 +129,12 @@ export const routes: RouteConfig[] = [
     element: HallOfFamePage,
     protected: true,
     title: 'Hall of Fame',
+  },
+  {
+    path: '/student/archive',
+    element: ArchivePage,
+    protected: true,
+    title: 'Archive',
   },
   // {
   //   path: '/student/achievements',

@@ -185,10 +185,10 @@ const Sidebar: React.FC = () => {
         <div className="p-2 border-t border-[#212124] flex-shrink-0">
           <ul className="space-y-1">
             <li>
-              <a href="#" className={`flex items-center ${isCollapsed ? 'justify-center' : ''} p-2 rounded-lg transition-all duration-200 text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md group`}>
+              <a href="/student/archive" className={`flex items-center ${isCollapsed ? 'justify-center' : ''} p-2 rounded-lg transition-all duration-200 ${isActiveRoute('/student/archive') ? 'bg-[#facb25] text-[#000000] shadow-lg' : 'text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md'} group`}>
                 <Archive size={24} />
                 {!isCollapsed && (
-                  <span className="ml-3 text-sm font-medium text-white group-hover:text-[#000000]">Archive</span>
+                  <span className="ml-3 text-sm font-medium">Archive</span>
                 )}
               </a>
             </li>
@@ -292,9 +292,9 @@ const Sidebar: React.FC = () => {
         <div className="p-2 border-t border-[#212124] flex-shrink-0">
           <ul className="space-y-1">
             <li>
-              <a href="#" className="flex items-center p-2 rounded-lg transition-all duration-200 text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md group">
-                <Archive size={24} color="#fff" />
-                <span className="ml-3 text-sm font-medium text-white group-hover:text-[#000000]">Archive</span>
+              <a href="/student/archive" onClick={closeMobileMenu} className={`flex items-center p-2 rounded-lg transition-all duration-200 ${isActiveRoute('/student/archive') ? 'bg-[#facb25] text-[#000000] shadow-lg' : 'text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md'} group`}>
+                <Archive size={24} />
+                <span className="ml-3 text-sm font-medium">Archive</span>
               </a>
             </li>
             <li>
