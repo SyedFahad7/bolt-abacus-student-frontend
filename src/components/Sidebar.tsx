@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { House, Calculator, Trophy, Medal, User, SignOut, Flame, VideoCamera, Archive, List, X, ChartLine, MapTrifold, Target, Sword } from '@phosphor-icons/react';
+import { MiniAbacus } from '../features/virtual-abacus/components/MiniAbacus';
 
 // Dummy Sidebar for dashboard, UI only, no logic, static links
 const Sidebar: React.FC = () => {
   const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMiniAbacusOpen, setIsMiniAbacusOpen] = useState(false);
 
   const dummyUser = {
     initials: 'MM',
@@ -27,6 +29,7 @@ const Sidebar: React.FC = () => {
     { name: 'Solo Training Ground', href: '/student/solo-training-ground', icon: <Target size={24} /> },
     { name: 'Epic Battle Ground', href: '/student/epic-battle-ground', icon: <Sword size={24} /> },
     { name: 'Hall of Fame', href: '/student/hall-of-fame', icon: <Trophy size={24} /> },
+    { name: 'Virtual Abacus', href: '/student/virtual-abacus', icon: <Calculator size={24} />, hasMini: true },
     // { name: 'Achievements', href: '/student/achievements', icon: <Medal size={24} /> },
     // { name: 'Profile', href: '/student/profile', icon: <User size={24} /> },
   ];
@@ -170,7 +173,12 @@ const Sidebar: React.FC = () => {
                 </a>
                 {!isCollapsed && item.hasMini && (
                   <button
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-md border border-[#212124] text-white bg-[#212124] hover:bg-[#facb25] hover:text-[#000000]"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsMiniAbacusOpen(true);
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-md border border-[#212124] text-white bg-[#212124] hover:bg-[#facb25] hover:text-[#000000] transition-all"
                     title="Open mini abacus"
                   >
                     Mini
@@ -277,7 +285,13 @@ const Sidebar: React.FC = () => {
                 </a>
                 {item.hasMini && (
                   <button
-                    className="absolute right-2 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-md border border-[#212124] text-white bg-[#212124] hover:bg-[#facb25] hover:text-[#000000]"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsMiniAbacusOpen(true);
+                      closeMobileMenu();
+                    }}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 text-xs px-2 py-1 rounded-md border border-[#212124] text-white bg-[#212124] hover:bg-[#facb25] hover:text-[#000000] transition-all"
                     title="Open mini abacus"
                   >
                     Mini
@@ -306,6 +320,11 @@ const Sidebar: React.FC = () => {
           </ul>
         </div>
       </aside>
+
+      {/* mini abacus floating window */}
+      {isMiniAbacusOpen && (
+        <MiniAbacus onClose={() => setIsMiniAbacusOpen(false)} />
+      )}
     </>
   );
 

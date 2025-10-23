@@ -24,6 +24,7 @@ const STGSetResultsPage = lazy(() => import('../features/solo-training-ground/ga
 const StudentProgressPage = lazy(() => import('../features/progress/page'));
 const HallOfFamePage = lazy(() => import('../features/hall-of-fame/page'));
 const ArchivePage = lazy(() => import('../features/archive/page'));
+const VirtualAbacusPage = lazy(() => import('../features/virtual-abacus/page'));
 // const StudentAchievementsPage = lazy(() => import('../features/achievements/page'));
 
 export interface RouteConfig {
@@ -135,6 +136,12 @@ export const routes: RouteConfig[] = [
     element: ArchivePage,
     protected: true,
     title: 'Archive',
+  },
+  {
+    path: '/student/virtual-abacus',
+    element: VirtualAbacusPage,
+    protected: true,
+    title: 'Virtual Abacus',
   },
   // {
   //   path: '/student/achievements',
