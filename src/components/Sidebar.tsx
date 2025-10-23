@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { House, Calculator, Trophy, Medal, User, SignOut, Flame, VideoCamera, Archive, List, X, ChartLine, MapTrifold, Target, Sword } from '@phosphor-icons/react';
 
 // Dummy Sidebar for dashboard, UI only, no logic, static links
 const Sidebar: React.FC = () => {
+  const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,19 +18,23 @@ const Sidebar: React.FC = () => {
     name: string;
     href: string;
     icon: React.ReactNode;
-    isActive: boolean;
     hasMini?: boolean;
   };
   const navigationItems: NavItem[] = [
-    { name: 'Dashboard', href: '/student/dashboard', icon: <House size={24} weight="fill" />, isActive: true },
-    { name: 'Path of Conquest', href: '/student/path-of-conquest', icon: <MapTrifold size={24} />, isActive: false },
-    { name: 'Progress', href: '/student/progress', icon: <ChartLine size={24} />, isActive: false},
-    { name: 'Solo Training Ground', href: '/student/solo-training-ground', icon: <Target size={24} />, isActive: false },
-    { name: 'Epic Battle Ground', href: '/student/epic-battle-ground', icon: <Sword size={24} />, isActive: false },
-    { name: 'Hall of Fame', href: '/student/hall-of-fame', icon: <Trophy size={24} />, isActive: false },
-    // { name: 'Achievements', href: '/student/achievements', icon: <Medal size={24} />, isActive: false },
-    // { name: 'Profile', href: '/student/profile', icon: <User size={24} />, isActive: false },
+    { name: 'Dashboard', href: '/student/dashboard', icon: <House size={24} weight="fill" /> },
+    { name: 'Path of Conquest', href: '/student/path-of-conquest', icon: <MapTrifold size={24} /> },
+    { name: 'Progress', href: '/student/progress', icon: <ChartLine size={24} /> },
+    { name: 'Solo Training Ground', href: '/student/solo-training-ground', icon: <Target size={24} /> },
+    { name: 'Epic Battle Ground', href: '/student/epic-battle-ground', icon: <Sword size={24} /> },
+    { name: 'Hall of Fame', href: '/student/hall-of-fame', icon: <Trophy size={24} /> },
+    // { name: 'Achievements', href: '/student/achievements', icon: <Medal size={24} /> },
+    // { name: 'Profile', href: '/student/profile', icon: <User size={24} /> },
   ];
+
+  // Check if current route matches nav item
+  const isActiveRoute = (href: string) => {
+    return location.pathname === href || location.pathname.startsWith(href + '/');
+  };
 
   const publishSidebarWidth = () => {
     const root = document.documentElement;
@@ -150,14 +156,14 @@ const Sidebar: React.FC = () => {
                 <a
                   href={item.href}
                   className={`flex items-center ${isCollapsed ? 'justify-center' : ''} p-2 rounded-lg transition-all duration-200 group ${
-                    item.isActive
+                    isActiveRoute(item.href)
                       ? 'bg-[#facb25] text-[#000000] shadow-lg'
                       : 'text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md'
                   }`}
                 >
                   <span className="text-xl">{item.icon}</span>
                   {!isCollapsed && (
-                    <span className={`ml-3 text-sm font-medium ${item.isActive ? 'text-[#000000]' : 'text-white group-hover:text-[#000000]'}`}>
+                    <span className={`ml-3 text-sm font-medium ${isActiveRoute(item.href) ? 'text-[#000000]' : 'text-white group-hover:text-[#000000]'}`}>
                       {item.name}
                     </span>
                   )}
@@ -259,13 +265,13 @@ const Sidebar: React.FC = () => {
                 <a
                   href={item.href}
                   className={`flex items-center p-2 rounded-lg transition-all duration-200 group ${
-                    item.isActive
+                    isActiveRoute(item.href)
                       ? 'bg-[#facb25] text-[#000000] shadow-lg'
                       : 'text-white hover:bg-[#facb25] hover:text-[#000000] hover:shadow-md'
                   }`}
                 >
                   <span className="text-xl">{item.icon}</span>
-                  <span className={`ml-3 text-sm font-medium ${item.isActive ? 'text-[#000000]' : 'text-white group-hover:text-[#000000]'}`}>
+                  <span className={`ml-3 text-sm font-medium ${isActiveRoute(item.href) ? 'text-[#000000]' : 'text-white group-hover:text-[#000000]'}`}>
                     {item.name}
                   </span>
                 </a>

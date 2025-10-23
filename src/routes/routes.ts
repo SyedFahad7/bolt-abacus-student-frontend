@@ -21,7 +21,7 @@ const STGTimedResultsPage = lazy(() => import('../features/solo-training-ground/
 const STGSetPage = lazy(() => import('../features/solo-training-ground/gameModes/set/page'));
 const STGSetPracticePage = lazy(() => import('../features/solo-training-ground/gameModes/set/Practice'));
 const STGSetResultsPage = lazy(() => import('../features/solo-training-ground/gameModes/set/Results'));
-// const StudentProgressPage = lazy(() => import('../features/progress/page'));
+const StudentProgressPage = lazy(() => import('../features/progress/page'));
 // const StudentLeaderboardPage = lazy(() => import('../features/leaderboard/page'));
 // const StudentAchievementsPage = lazy(() => import('../features/achievements/page'));
 
@@ -117,18 +117,12 @@ export const routes: RouteConfig[] = [
     protected: true,
     title: 'Custom Challenge Results',
   },
-  // {
-  //   path: '/student/solo-training-ground/set',
-  //   element: STGSetPage,
-  //   protected: true,
-  //   title: 'Custom Challenge',
-  // },
-  // {
-  //   path: '/student/progress',
-  //   element: StudentProgressPage,
-  //   protected: true,
-  //   title: 'Progress',
-  // },
+  {
+    path: '/student/progress',
+    element: StudentProgressPage,
+    protected: true,
+    title: 'Progress',
+  },
   // {
   //   path: '/student/leaderboard',
   //   element: StudentLeaderboardPage,

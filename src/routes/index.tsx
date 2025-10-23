@@ -4,19 +4,14 @@
  * All rights reserved.
  */
 
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { routes, defaultRoute } from './routes';
-
-const LoadingFallback = () => (
-  <div className="flex items-center justify-center min-h-screen">
-    <div className="text-lg">loading...</div>
-  </div>
-);
+import LoadingPage from '../components/LoadingPage';
 
 const AppRoutes = () => (
   <BrowserRouter>
-    <Suspense fallback={<LoadingFallback />}>
+    <Suspense fallback={<LoadingPage />}>
       <Routes>
         {routes.map(({ path, element: Element, title }) => (
           <Route 
