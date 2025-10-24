@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { House, Calculator, Trophy, Medal, User, SignOut, Flame, VideoCamera, Archive, List, X, ChartLine, MapTrifold, Target, Sword } from '@phosphor-icons/react';
+import { House, Calculator, Trophy, SignOut, Flame, VideoCamera, Archive, List, X, ChartLine, MapTrifold, Target, Sword } from '@phosphor-icons/react';
 import { MiniAbacus } from '../features/virtual-abacus/components/MiniAbacus';
 
 // Dummy Sidebar for dashboard, UI only, no logic, static links

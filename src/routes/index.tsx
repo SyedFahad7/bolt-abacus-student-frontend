@@ -13,7 +13,7 @@ const AppRoutes = () => (
   <BrowserRouter>
     <Suspense fallback={<LoadingPage />}>
       <Routes>
-        {routes.map(({ path, element: Element, title }) => (
+        {routes.map(({ path, element: Element }) => (
           <Route 
             key={path} 
             path={path} 

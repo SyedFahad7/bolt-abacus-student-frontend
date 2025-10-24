@@ -9,6 +9,25 @@ import type { ComponentType } from 'react';
 
 const StudentDashboardPage = lazy(() => import('../features/dashboard/page'));
 const SoloTrainingGroundPage = lazy(() => import('../features/solo-training-ground/page'));
+// const EpicBattleGroundPage = lazy(() => import('../features/epic-battle-ground/page'));
+const EBGRoomPage = lazy(() => import('../features/epic-battle-ground/room/page'));
+// const EBGRoomLoadingPage = lazy(() => import('../features/epic-battle-ground/room/loading'));
+// const EBGRoomCountdownPage = lazy(() => import('../features/epic-battle-ground/room/countdown'));
+// const EBGRoomGamePage = lazy(() => import('../features/epic-battle-ground/room/game'));
+const EBGRoomResultsPage = lazy(() => import('../features/epic-battle-ground/room/results'));
+const EBGResultsPage = lazy(() => import('../features/epic-battle-ground/results/page'));
+const EBGFlashcardsPage = lazy(() => import('../features/epic-battle-ground/gameModes/flashcards/Form'));
+const EBGFlashcardsPracticePage = lazy(() => import('../features/epic-battle-ground/gameModes/flashcards/Practice'));
+const EBGFlashcardsResultsPage = lazy(() => import('../features/epic-battle-ground/gameModes/flashcards/Results'));
+const EBGUntimedPage = lazy(() => import('../features/epic-battle-ground/gameModes/untimed/Form'));
+const EBGUntimedPracticePage = lazy(() => import('../features/epic-battle-ground/gameModes/untimed/Practice'));
+const EBGUntimedResultsPage = lazy(() => import('../features/epic-battle-ground/gameModes/untimed/Results'));
+const EBGTimedPage = lazy(() => import('../features/epic-battle-ground/gameModes/timed/Form'));
+const EBGTimedPracticePage = lazy(() => import('../features/epic-battle-ground/gameModes/timed/Practice'));
+const EBGTimedResultsPage = lazy(() => import('../features/epic-battle-ground/gameModes/timed/Results'));
+const EBGSetPage = lazy(() => import('../features/epic-battle-ground/gameModes/set/Form'));
+const EBGSetPracticePage = lazy(() => import('../features/epic-battle-ground/gameModes/set/Practice'));
+const EBGSetResultsPage = lazy(() => import('../features/epic-battle-ground/gameModes/set/Results'));
 const STGFlashcardsPage = lazy(() => import('../features/solo-training-ground/gameModes/flashcards/Form'));
 const STGFlashcardsPracticePage = lazy(() => import('../features/solo-training-ground/gameModes/flashcards/Practice'));
 const STGFlashcardsResultsPage = lazy(() => import('../features/solo-training-ground/gameModes/flashcards/Results'));
@@ -60,6 +79,120 @@ export const routes: RouteConfig[] = [
     element: SoloTrainingGroundPage,
     protected: true,
     title: 'Solo Training Ground',
+  },
+  // {
+  //   path: '/student/epic-battle-ground',
+  //   element: EpicBattleGroundPage,
+  //   protected: true,
+  //   title: 'Epic Battle Ground',
+  // },
+  {
+    path: '/student/epic-battle-ground/room/:roomId',
+    element: EBGRoomPage,
+    protected: true,
+    title: 'Epic Battle Ground Room Lobby',
+  },
+  // {
+  //   path: '/student/epic-battle-ground/room/:roomId/loading',
+  //   element: EBGRoomLoadingPage,
+  //   protected: true,
+  //   title: 'Epic Battle Ground Loading',
+  // },
+  // {
+  //   path: '/student/epic-battle-ground/room/:roomId/countdown',
+  //   element: EBGRoomCountdownPage,
+  //   protected: true,
+  //   title: 'Epic Battle Ground Countdown',
+  // },
+  // {
+  //   path: '/student/epic-battle-ground/room/:roomId/game',
+  //   element: EBGRoomGamePage,
+  //   protected: true,
+  //   title: 'Epic Battle Ground Game',
+  // },
+  {
+    path: '/student/epic-battle-ground/room/:roomId/results',
+    element: EBGRoomResultsPage,
+    protected: true,
+    title: 'Epic Battle Ground Results',
+  },
+  {
+    path: '/student/epic-battle-ground/results',
+    element: EBGResultsPage,
+    protected: true,
+    title: 'Epic Battle Ground Results',
+  },
+  {
+    path: '/student/epic-battle-ground/flashcards',
+    element: EBGFlashcardsPage,
+    protected: true,
+    title: 'Epic Flashcards',
+  },
+  {
+    path: '/student/epic-battle-ground/flashcards/practice',
+    element: EBGFlashcardsPracticePage,
+    protected: true,
+    title: 'Epic Flashcards Practice',
+  },
+  {
+    path: '/student/epic-battle-ground/flashcards/results',
+    element: EBGFlashcardsResultsPage,
+    protected: true,
+    title: 'Epic Flashcards Results',
+  },
+  {
+    path: '/student/epic-battle-ground/untimed',
+    element: EBGUntimedPage,
+    protected: true,
+    title: 'Epic No Rush Mastery',
+  },
+  {
+    path: '/student/epic-battle-ground/untimed/practice',
+    element: EBGUntimedPracticePage,
+    protected: true,
+    title: 'Epic No Rush Practice',
+  },
+  {
+    path: '/student/epic-battle-ground/untimed/results',
+    element: EBGUntimedResultsPage,
+    protected: true,
+    title: 'Epic No Rush Results',
+  },
+  {
+    path: '/student/epic-battle-ground/timed',
+    element: EBGTimedPage,
+    protected: true,
+    title: 'Epic Time Attack',
+  },
+  {
+    path: '/student/epic-battle-ground/timed/practice',
+    element: EBGTimedPracticePage,
+    protected: true,
+    title: 'Epic Time Attack Practice',
+  },
+  {
+    path: '/student/epic-battle-ground/timed/results',
+    element: EBGTimedResultsPage,
+    protected: true,
+    title: 'Epic Time Attack Results',
+  },
+  {
+    path: '/student/epic-battle-ground/set',
+    element: EBGSetPage,
+    protected: true,
+    title: 'Epic Custom Challenge',
+  },
+  {
+    path: '/student/epic-battle-ground/set/practice',
+    element: EBGSetPracticePage,
+    protected: true,
+    title: 'Epic Custom Challenge Practice',
+  },
+  {
+    path: '/student/epic-battle-ground/set/results',
+    element: EBGSetResultsPage,
+    protected: true,
+    title: 'Epic Custom Challenge Results',
   },
   {
     path: '/student/solo-training-ground/flashcards',
