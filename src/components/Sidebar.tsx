@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { House, Calculator, Trophy, SignOut, Flame, VideoCamera, Archive, List, X, ChartLine, MapTrifold, Target, Sword } from '@phosphor-icons/react';
 import { MiniAbacus } from '../features/virtual-abacus/components/MiniAbacus';
+import logo from '../assets/images/logo.png';
 
 // Dummy Sidebar for dashboard, UI only, no logic, static links
 const Sidebar: React.FC = () => {
@@ -87,7 +88,7 @@ const Sidebar: React.FC = () => {
           {!isCollapsed ? (
             <div className="flex items-center space-x-2">
               <a href="/">
-                <img src="../src/assets/images/logo.png" alt="BoltAbacus logo" className="w-3/4 cursor-pointer" />
+                <img src={logo} alt="BoltAbacus logo" className="w-3/4 cursor-pointer" />
               </a>
             </div>
           ) : (
@@ -218,7 +219,7 @@ const Sidebar: React.FC = () => {
         <div className="flex items-center justify-between p-2 border-b border-[#212124] flex-shrink-0">
           <div className="flex items-center space-x-2">
             <a href="/">
-              <img src="/logo.png" alt="BoltAbacus logo" width={40} height={40} className="cursor-pointer" />
+              <img src={logo} alt="BoltAbacus logo" width={40} height={40} className="cursor-pointer" />
             </a>
             <span className="font-bold text-lg text-white">BoltAbacus</span>
           </div>

@@ -1,0 +1,63 @@
+/* Auth page specific animations and helpers */
+
+@keyframes rippleRing {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.35; }
+  70% { opacity: 0.15; }
+  100% { transform: translate(-50%, -50%) scale(1.05); opacity: 0; }
+}
+
+@keyframes orbitRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.auth-ripple {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.auth-ripple span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  animation: rippleRing 6s linear infinite;
+  border: 1px solid rgba(250, 203, 37, 0.25);
+}
+
+.orbit-path {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.orbit-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  border-radius: 9999px;
+  animation: orbitRotate var(--orbit-duration, 20s) linear infinite;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(calc(var(--orbit-size) / 2));
+}
+
+.input-hover-wrap {
+  position: relative;
+  border-radius: 0.5rem;
+  padding: 2px;
+  transition: background 300ms ease;
+}
+
+.input-hover-wrap[data-hover="true"] {
+  background: radial-gradient(100px circle at var(--mx) var(--my), rgba(250,203,37,0.35), transparent 70%);
+}

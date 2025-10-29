@@ -3,5 +3,7 @@
  * Licensed under XUNOIA Private License v1.0
  * All rights reserved.
  */
- @import './styles/tailwind.css'
+ @import './styles/tailwind.css';
+ @import './styles/globals.css';
+ @import './styles/auth.css';
 

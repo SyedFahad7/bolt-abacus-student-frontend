@@ -46,6 +46,7 @@ const ArchivePage = lazy(() => import('../features/archive/page'));
 const VirtualAbacusPage = lazy(() => import('../features/virtual-abacus/page'));
 const PathOfConquestPage = lazy(() => import('../features/path-of-conquest/page'));
 const PathOfConquestRealmPage = lazy(() => import('../features/path-of-conquest/realm'));
+const StudentSignInPage = lazy(() => import('../features/auth/signin/page'));
 // const StudentAchievementsPage = lazy(() => import('../features/achievements/page'));
 
 export interface RouteConfig {
@@ -56,6 +57,12 @@ export interface RouteConfig {
 }
 
 export const routes: RouteConfig[] = [
+  {
+    path: '/student/auth',
+    element: StudentSignInPage,
+    protected: false,
+    title: 'Sign in',
+  },
   {
     path: '/student/dashboard',
     element: StudentDashboardPage,
@@ -304,4 +311,4 @@ export const routes: RouteConfig[] = [
   // },
 ];
 
-export const defaultRoute = '/student/dashboard';
+export const defaultRoute = '/student/auth';

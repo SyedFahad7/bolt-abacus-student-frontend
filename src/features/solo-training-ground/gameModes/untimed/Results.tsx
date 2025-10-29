@@ -73,7 +73,7 @@ const UntimedResults: FC = () => {
           {/* Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             <div className="bg-[#0f0f10] border border-[#2a2a2d] rounded-xl p-6 text-center">
-              <div className="text-4xl font-bold text-gold mb-2">{score}%</div>
+              <div className="text-4xl font-bold text-yellow-300 mb-2">{score}%</div>
               <div className="text-white/60">Score</div>
             </div>
             <div className="bg-[#0f0f10] border border-[#2a2a2d] rounded-xl p-6 text-center">

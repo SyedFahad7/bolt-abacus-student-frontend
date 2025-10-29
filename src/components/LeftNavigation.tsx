@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import BrandLogo from './BrandLogo';
+import logo from '../assets/images/logo.png';
 import ProfileIcon from './ProfileIcon';
 
 export interface LeftNavigationProps {
@@ -119,7 +120,7 @@ const LeftNavigation: FC<LeftNavigationProps> = ({ onCollapseChange }) => {
             ) : (
               <div className="flex items-center justify-center w-full">
                 <Link to="/">
-                  <img src="/logo.png" alt="BoltAbacus logo" width={40} height={40} className="cursor-pointer" />
+                  <img src={logo} alt="BoltAbacus logo" width={40} height={40} className="cursor-pointer" />
                 </Link>
               </div>
             )}
