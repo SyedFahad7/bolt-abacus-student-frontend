@@ -32,7 +32,7 @@ const ModeDistributionCard: FC<ModeDistributionCardProps> = ({ className = '' })
         return '🎯';
     }
   };
-  const getModeColor = (mode: string, index: number) => {
+  const getModeColor = (_mode: string, index: number) => {
     const colors = [
       '#facb25', '#3b82f6', '#ef4444', '#10b981', '#8b5cf6', '#f59e0b',
     ];
