@@ -9,11 +9,11 @@ import type { ComponentType } from 'react';
 
 const StudentDashboardPage = lazy(() => import('../features/dashboard/page'));
 const SoloTrainingGroundPage = lazy(() => import('../features/solo-training-ground/page'));
-// const EpicBattleGroundPage = lazy(() => import('../features/epic-battle-ground/page'));
+const EpicBattleGroundPage = lazy(() => import('../features/epic-battle-ground/page'));
 const EBGRoomPage = lazy(() => import('../features/epic-battle-ground/room/page'));
-// const EBGRoomLoadingPage = lazy(() => import('../features/epic-battle-ground/room/loading'));
-// const EBGRoomCountdownPage = lazy(() => import('../features/epic-battle-ground/room/countdown'));
-// const EBGRoomGamePage = lazy(() => import('../features/epic-battle-ground/room/game'));
+const EBGRoomLoadingPage = lazy(() => import('../features/epic-battle-ground/room/loading'));
+const EBGRoomCountdownPage = lazy(() => import('../features/epic-battle-ground/room/countdown'));
+const EBGRoomGamePage = lazy(() => import('../features/epic-battle-ground/room/game'));
 const EBGRoomResultsPage = lazy(() => import('../features/epic-battle-ground/room/results'));
 const EBGResultsPage = lazy(() => import('../features/epic-battle-ground/results/page'));
 const EBGFlashcardsPage = lazy(() => import('../features/epic-battle-ground/gameModes/flashcards/Form'));
@@ -87,36 +87,36 @@ export const routes: RouteConfig[] = [
     protected: true,
     title: 'Solo Training Ground',
   },
-  // {
-  //   path: '/student/epic-battle-ground',
-  //   element: EpicBattleGroundPage,
-  //   protected: true,
-  //   title: 'Epic Battle Ground',
-  // },
+  {
+    path: '/student/epic-battle-ground',
+    element: EpicBattleGroundPage,
+    protected: true,
+    title: 'Epic Battle Ground',
+  },
   {
     path: '/student/epic-battle-ground/room/:roomId',
     element: EBGRoomPage,
     protected: true,
     title: 'Epic Battle Ground Room Lobby',
   },
-  // {
-  //   path: '/student/epic-battle-ground/room/:roomId/loading',
-  //   element: EBGRoomLoadingPage,
-  //   protected: true,
-  //   title: 'Epic Battle Ground Loading',
-  // },
-  // {
-  //   path: '/student/epic-battle-ground/room/:roomId/countdown',
-  //   element: EBGRoomCountdownPage,
-  //   protected: true,
-  //   title: 'Epic Battle Ground Countdown',
-  // },
-  // {
-  //   path: '/student/epic-battle-ground/room/:roomId/game',
-  //   element: EBGRoomGamePage,
-  //   protected: true,
-  //   title: 'Epic Battle Ground Game',
-  // },
+  {
+    path: '/student/epic-battle-ground/room/:roomId/loading',
+    element: EBGRoomLoadingPage,
+    protected: true,
+    title: 'Epic Battle Ground Loading',
+  },
+  {
+    path: '/student/epic-battle-ground/room/:roomId/countdown',
+    element: EBGRoomCountdownPage,
+    protected: true,
+    title: 'Epic Battle Ground Countdown',
+  },
+  {
+    path: '/student/epic-battle-ground/room/:roomId/game',
+    element: EBGRoomGamePage,
+    protected: true,
+    title: 'Epic Battle Ground Game',
+  },
   {
     path: '/student/epic-battle-ground/room/:roomId/results',
     element: EBGRoomResultsPage,
