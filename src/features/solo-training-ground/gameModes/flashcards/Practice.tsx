@@ -358,8 +358,7 @@ export default function FlashcardsPracticePage() {
 
   const submitAnswer = () => {
     const userAnswer = parseInt(answer, 10);
-    console.log('uestions[currentIndex].answer',questions[currentIndex].answer)
-    const correctAnswer = questions[currentIndex].answer;
+    const correctAnswer = calculateAnswer(questions[currentIndex]);
     const correct = userAnswer === correctAnswer;
 
     const updatedAnswers = answers.map((a) =>

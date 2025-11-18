@@ -64,7 +64,6 @@ const GAME_MODES = [
 export default function SoloTrainingGroundPage() {
   const [step, setStep] = useState<'operation' | 'gameMode' | 'form' | 'practice' | 'results'>('operation');
   const [selectedOperation, setSelectedOperation] = useState<string>('');
-  const [selectedGameMode, setSelectedGameMode] = useState<string>('');
   const navigate = useNavigate();
 
   if (step === 'operation') {
@@ -114,7 +113,7 @@ export default function SoloTrainingGroundPage() {
                   color={mode.color}
                   description={mode.description}
                   onClick={() => {
-                    setSelectedGameMode(mode.key);
+                    // setSelectedGameMode(mode.key); // Removed
                     // Route to the correct page and pass operation via query param for now
                     const base = '/student/solo-training-ground';
                     const op = selectedOperation || 'addition';

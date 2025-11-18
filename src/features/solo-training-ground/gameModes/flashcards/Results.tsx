@@ -2,7 +2,7 @@ import Sidebar from '../../../../components/Sidebar';
 import MainContent from '../../../../components/layout/MainContent';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import type { QuizQuestion, QuizAnswer, FlashcardsSettings } from '../../types';
-import { calculateAnswer } from '../../utils';
+// import { calculateAnswer } from '../../utils'; // Removed as it's not used
 import { CheckCircle, XCircle, Trophy } from '@phosphor-icons/react';
 
 export default function FlashcardsResultsPage() {

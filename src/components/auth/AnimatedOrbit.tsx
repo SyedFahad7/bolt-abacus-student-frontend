@@ -88,7 +88,7 @@ const AnimatedOrbit: React.FC = () => {
             if (!picks.includes(idx)) picks.push(idx);
           }
 
-          const angles = [-30, 65, 130, 300, 225, 440, 5, 160];
+          const angles = [-60, 65, 150, 350, 225, 450, 5, 160];
 
           return picks.map((ringIdx, i) => {
             const r = ringRadii[ringIdx];

@@ -4,7 +4,7 @@
  * All rights reserved.
  */
 
-import React from 'react';
+// import React from 'react'; // Removed as it's not explicitly used
 import AppRoutes from './routes';
 
 export default function App() {

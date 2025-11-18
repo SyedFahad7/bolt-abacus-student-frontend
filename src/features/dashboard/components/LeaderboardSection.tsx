@@ -34,7 +34,7 @@ const LeaderboardSection: FC<LeaderboardSectionProps> = ({ className = '' }) => 
           Lightning Leaderboard
         </h2>
         <div className="space-y-3 mb-6">
-          {leaderboard.map((student, index) => (
+          {leaderboard.map((student) => (
             <div
               key={student.rank}
               className="flex items-center space-x-3 p-3 rounded-xl hover:scale-[1.02] transition-all duration-300 relative overflow-hidden cursor-pointer group backdrop-blur-sm border border-white/10"

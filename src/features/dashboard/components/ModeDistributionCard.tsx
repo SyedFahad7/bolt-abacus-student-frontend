@@ -46,28 +46,28 @@ const ModeDistributionCard: FC<ModeDistributionCardProps> = ({ className = '' })
     const centerY = 80;
     return (
       <svg width="160" height="160" className="mx-auto">
-        {modeDistribution.map((mode, index) => {
+        {modeDistribution.map((_mode, index) => {
           const startAngle = (cumulativePercentage / 100) * 360;
-          const endAngle = ((cumulativePercentage + mode.percentage) / 100) * 360;
+          const endAngle = ((cumulativePercentage + _mode.percentage) / 100) * 360;
           const startAngleRad = (startAngle - 90) * (Math.PI / 180);
           const endAngleRad = (endAngle - 90) * (Math.PI / 180);
           const x1 = centerX + radius * Math.cos(startAngleRad);
           const y1 = centerY + radius * Math.sin(startAngleRad);
           const x2 = centerX + radius * Math.cos(endAngleRad);
           const y2 = centerY + radius * Math.sin(endAngleRad);
-          const largeArcFlag = mode.percentage > 50 ? 1 : 0;
+          const largeArcFlag = _mode.percentage > 50 ? 1 : 0;
           const pathData = [
             `M ${centerX} ${centerY}`,
             `L ${x1} ${y1}`,
             `A ${radius} ${radius} 0 ${largeArcFlag} 1 ${x2} ${y2}`,
             'Z',
           ].join(' ');
-          cumulativePercentage += mode.percentage;
+          cumulativePercentage += _mode.percentage;
           return (
             <path
-              key={mode.mode}
+              key={_mode.mode}
               d={pathData}
-              fill={getModeColor(mode.mode, index)}
+              fill={getModeColor(_mode.mode, index)}
               stroke="#1f2937"
               strokeWidth="2"
               className="hover:opacity-80 transition-opacity"
